@@ -2,26 +2,39 @@ import react from "react";
 import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
-export default function Checkbox({
-    id,
-    text,
-    isCompleted,
-    isToday,
-    hour
-}){
-    return isToday ?(
-        <TouchableOpacity style={isCompleted ? styles.checked:styles.unChecked}>
-            {isCompleted && <Entypo name="check" size={16} color="#FAFAFA"/>}
+// export default function Checkbox({
+//     id,
+//     text,
+//     isCompleted,
+//     isToday,
+//     hour
+// }){
+//     return isToday ?(
+//         <TouchableOpacity style={isCompleted ? styles.checked:styles.unChecked}>
+//             {isCompleted && <Entypo name="check" size={16} color="#FAFAFA"/>}
+//         </TouchableOpacity>
+//     ):(
+//         <View style={styles.isToday}>
+
+//         </View>
+//     )
+// }
+const Checkbox = (props) => {
+    return props.isToday ? (
+        <TouchableOpacity style={props.isCompleted ? styles.checked : styles.unChecked}>
+            {props.isCompleted && <Entypo name="check" size={16} color="#FAFAFA" />}
         </TouchableOpacity>
-    ):(
+    ) : (
         <View style={styles.isToday}>
 
         </View>
     )
-}
+};
+
+export default Checkbox;
 
 const styles = StyleSheet.create({
-    checked:{
+    checked: {
         width: 20,
         height: 20,
         marginRight: 13,
@@ -32,15 +45,15 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         shadowColor: '#000',
         shadowOffset: {
-            width:0,
-            height:2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: .3,
         shadowRadius: 5,
-        elevation: 5,        
+        elevation: 5,
     },
-    
-    unChecked:{
+
+    unChecked: {
         width: 20,
         height: 20,
         marginRight: 13,
@@ -51,19 +64,19 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         shadowColor: '#FFF',
         shadowOffset: {
-            width:0,
-            height:2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: .3,
         shadowRadius: 5,
         elevation: 5,
     },
-    isToday:{
+    isToday: {
         width: 10,
         height: 10,
-        marginHorizontal:10,
+        marginHorizontal: 10,
         borderRadius: 10,
-        backgroundColor: '#262626',
+        backgroundColor: '#fff',//'#262626',
         marginRight: 13,
         marginLeft: 15,
     }

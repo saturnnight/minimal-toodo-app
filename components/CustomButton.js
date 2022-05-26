@@ -8,7 +8,8 @@ const CustomButton = (props) => {
       style={styles.button}
       onPress={props.customClick}>
       <Text style={styles.text}>
-        {props.title}
+        {/* {props.title} */}
+        {props.text}
       </Text>
     </TouchableOpacity>
   );
