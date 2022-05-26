@@ -3,8 +3,11 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar } from 'reac
 import TodoList from '../components/TodoList';
 import { todoData } from "../data/todos";
 import { useNavigation } from "@react-navigation/native";
+// import reactNativeConfig from "../react-native.config";
+import { useFonts } from "expo-font";
 
-export default function Home() {
+export default function Home() {   
+
     // this action require import * as React from "react";
     const [localData, setLocalData] = React.useState(
         todoData.sort((a, b) => { return a.isCompleted - b.isCompleted })
@@ -23,6 +26,17 @@ export default function Home() {
         setHidden(!isHidden)
         setLocalData(localData.filter(todo => !todo.isCompleted))
     }
+
+    const [loaded] = useFonts({
+        RubikRegular: require('../assets/fonts/rubik_regular.ttf'),
+        RubikLight: require('../assets/fonts/rubik_light.ttf'),
+        RubikBold: require('../assets/fonts/rubik_bold.ttf'),
+        MuseoModernoLight: require('../assets/fonts/MuseoModerno-Light.ttf'),
+    });
+
+    if(!loaded){
+        return null;
+    };
 
     return (
         <View style={styles.container}>
@@ -54,7 +68,9 @@ const styles = StyleSheet.create({
         flex: 1,
         // paddingTop: 70,
         paddingTop: 10,
-        paddingHorizontal: 15
+        paddingHorizontal: 15,  
+        backgroundColor: '#171941'
+    
     },
     pic: {
         width: 42,
@@ -63,10 +79,13 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end'
     },
     title: {
+        // fontFamily: 'RubikRegular',
+        color:'#fff',
         fontSize: 34,
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
         marginBottom: 35,
         marginTop: 10,
+        fontFamily: 'MuseoModernoLight'
     },
     button: {
         width: 42,

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Switch, View, Text, TextInput, TouchableOpacity, Button } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import CustomButton from '../components/CustomButton';
 // import { DateTimePickerAndroid } from '@react-native-community/datetimepicker'
 // import DateTimePickerModal from "react-native-modal-datetime-picker";
 
@@ -116,6 +117,7 @@ export default function AddTodo() {
             <TouchableOpacity style={styles.button}>
                 <Text style={{ color: 'white' }}>Done</Text>
             </TouchableOpacity>
+            <CustomButton title="Salvar"  />
             <Text style={{ color: '#00000060' }}> If you disable today, the task will be considered as tomorrow</Text>
         </View>
     )
@@ -126,8 +128,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#F7F8FA',
         paddingHorizontal: 30,
+        backgroundColor: '#171941'
     },
     title: {
+        color: '#fff',
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 35,
