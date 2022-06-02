@@ -36,5 +36,5 @@ const todoData = [
     }
 ];
 
-module.exports = {todoData};
+module.exports = { todoData };
 

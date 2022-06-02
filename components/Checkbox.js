@@ -1,5 +1,5 @@
 import react from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 
 // export default function Checkbox({
@@ -21,12 +21,24 @@ import { Entypo } from "@expo/vector-icons";
 // }
 const Checkbox = (props) => {
     return props.isToday ? (
-        <TouchableOpacity style={props.isCompleted ? styles.checked : styles.unChecked}>
-            {props.isCompleted && <Entypo name="check" size={16} color="#FAFAFA" />}
-        </TouchableOpacity>
+        <View style={styles.container}>
+            <TouchableOpacity style={props.isCompleted ? styles.checked : styles.unChecked}>
+                {props.isCompleted && <Entypo name="check" size={16} color="#FAFAFA" />}
+            </TouchableOpacity>
+            <View>
+                <Text style={props.isCompleted ? [styles.text, { textDecorationLine: 'line-through', color: '#73737330' }] : styles.text}>{props.text}</Text>
+                <Text style={props.isCompleted ? [styles.text, { textDecorationLine: 'line-through', color: '#73737330' }] : styles.text}>{props.hour}</Text>
+            </View>
+        </View>
     ) : (
-        <View style={styles.isToday}>
-
+        <View style={styles.container}>
+            <TouchableOpacity style={styles.isToday}>
+                {/* {props.isCompleted && <Entypo name="check" size={16} color="#FAFAFA" />} */}
+            </TouchableOpacity>
+            <View>
+                <Text style={props.isCompleted ? [styles.text, { textDecorationLine: 'line-through', color: '#73737330' }] : styles.text}>{props.text}</Text>
+                <Text style={props.isCompleted ? [styles.text, { textDecorationLine: 'line-through', color: '#73737330' }] : styles.text}>{props.hour}</Text>
+            </View>
         </View>
     )
 };
@@ -34,6 +46,21 @@ const Checkbox = (props) => {
 export default Checkbox;
 
 const styles = StyleSheet.create({
+    container: {
+        marginBottom: 20,
+        flexDirection: "row",
+        alignItems: 'center'
+    },
+    text: {
+        fontSize: 15,
+        fontWeight: '500',
+        color: '#737373'
+    },
+    time: {
+        fontSize: 13,
+        fontWeight: '500',
+        color: '#a3a3a3'
+    },
     checked: {
         width: 20,
         height: 20,

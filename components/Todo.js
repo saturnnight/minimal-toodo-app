@@ -27,10 +27,10 @@ export default function Todo({
                 isToday={isToday}
                 hour={hour}
             /> */}
-            <View>
+            {/* <View>
                 <Text style={ isCompleted? [styles.text, {textDecorationLine: 'line-through', color: '#73737330'}]: styles.text}>{text}</Text>
                 <Text style={ isCompleted? [styles.text, {textDecorationLine: 'line-through', color: '#73737330'}]: styles.text}>{hour}</Text>
-            </View>
+            </View> */}
         </View>
     )
 }

@@ -1,0 +1,66 @@
+<Text style={styles.title}>Add To do</Text>
+            <View style={styles.inputContainer}>
+                {/* <Text style={styles.inputTitle}>Name</Text> */}
+                {/* <TextInput
+                    style={styles.textInput}
+                    placeholder="Task"
+                    placeholderTextColor={'#00000030'}
+                    onChangeText={(text) => { setName(text) }}
+                /> */}
+                {/* <TextInput style={styles.input} placeholder={'Write a task'}  /> */}
+                <TextInput
+                    label="Email"
+                    value={text}
+                    style={styles.textInput}
+                    // onChangeText={text => setText(text)}
+                />
+            </View>
+            <View style={styles.inputContainer}>
+                <Text style={styles.inputTitle}>Hour</Text>
+                <Text style={styles.inputTitle}>{text}</Text>
+            </View>
+
+            {/* Display the selected date */}
+            <View style={styles.pickedDateContainer}>
+                <Text style={styles.pickedDate}>{date.toUTCString()}</Text>
+            </View>
+            {/* The button that used to trigger the date picker */}
+            {!isPickerShow && (
+                <View style={styles.btnContainer}>
+                    <Button title="Show Picker" color="purple" onPress={showPicker} />
+                </View>
+            )}
+            {/* The date picker */}
+            {isPickerShow && (
+                <DateTimePicker
+                    value={date}
+                    mode={'time'}//date
+                    display={'default'}
+                    // display={Platform.OS === 'android' ? 'spinner' : 'default'}
+                    is24Hour={true}
+                    onChange={onChange}
+                // style={styles.datePicker}
+                />
+            )}
+            <View style={styles.inputContainer}>
+                <Text style={styles.inputTitle}>Today</Text>
+                <Switch
+                    value={isToday}
+                    onValueChange={(value) => { setIsToday(value) }}
+                />
+            </View>
+            {/* <TouchableOpacity style={styles.button}>
+                <Text style={{ color: 'white' }}>Done</Text>
+            </TouchableOpacity> */}
+            <CustomButton text="Salvar" />
+
+            {/* <TextInput style={styles.input} placeholder={'Write a task'} value={task} onChangeText={text => setTask(text)} /> */}
+            {/* <TextInput style={styles.input} placeholder={'Write a task'}  /> */}
+            <TouchableOpacity>
+                <View style={styles.addWrapper}>
+                    <Text style={styles.addText}>+</Text>
+                </View>
+            </TouchableOpacity>
+
+            <Text style={{ color: '#00000060' }}> If you disable today, the task will be considered as tomorrow</Text>
+       

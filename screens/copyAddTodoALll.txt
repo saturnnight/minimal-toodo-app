@@ -128,10 +128,7 @@ export default function AddTodo() {
       };
     return (
         <View style={styles.container}>
-            {/* <Text style={styles.title}>Add To do</Text> */}
-            <View style={styles.inputContainer}>
-                <Text style={styles.title}>Hola</Text>
-            </View>
+            <Text style={styles.title}>Add To do</Text>
             <View style={styles.inputContainer}>
                 <TextInput
                     label="Name Task"
